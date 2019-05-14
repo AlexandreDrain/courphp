@@ -1,5 +1,5 @@
 <?php
-require("header.php");
+require("inc/header.php");
 ?>
 
 <h1> Les tableaux </h1>
@@ -13,5 +13,5 @@ require("header.php");
 
 
 <?php
-    require("footer.php");
+    require("inc/footer.php");
 ?>
