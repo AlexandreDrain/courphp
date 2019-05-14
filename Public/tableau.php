@@ -48,6 +48,33 @@ require("inc/header.php");
         ]
     ];
    // var_dump($products[2]);
+
+    $salade = "salade";
+    $pomme = "banane";
+    $fruits = ["poires", "pommes", $salade];
+    // syntaxe équivalente
+    // =fruits = array("poires", "pommes");
+
+    $fruits[] = "pamplemousse";
+    $fruits[] = $pomme;
+    var_dump($fruits);
+
+    $length = sizeof($fruits); // meilleurs façon de faire, sinon mettre "sizeof($nomDuTableau)" a la place de $length, aussi count() = sizeof()
+    for($i=0;$i<$length;$i++) {
+    var_dump($fruits[$i]);
+}
+    // tri du tableau
+    sort($fruits);
+    var_dump($fruits);
+
+    // transform un tableau en chaine de caractère
+
+    $strfruits = implode("#", $fruits); // dans "glue" mettre le caractère qui vas être mis entre chaque composant du tableau
+    echo $strfruits;
+
+    $strfruits = implode("</li><li>", $fruits);
+    echo "<li><li>" . $strfruits . "</li></ul>";
+
 ?>
         <main class="container">
             <h1> Les tableaux </h1>
