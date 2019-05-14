@@ -1,6 +1,6 @@
 <?php
 
-    require("header.php");
+    require("inc/header.php");
 
 ?>
 <h1 class="text-white bg-dark">Ma page</h1>
@@ -158,7 +158,7 @@
 </table>
 
 <?php
-require("footer.php");
+require("inc/footer.php");
 ?>
 
 
