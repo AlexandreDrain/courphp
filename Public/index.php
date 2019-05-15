@@ -22,6 +22,10 @@
 
     echo NB_ARTICLE_PER_PAGE;
 
+    define("ALEX", "Salut je m'appelle Alexandre Drain et j'ai 18ans");
+
+    echo ALEX;
+
     /*On ne modifie pas une constante
      NB_ARTICLE_PER_PAGE = 12; */
 
