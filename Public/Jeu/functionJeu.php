@@ -8,3 +8,4 @@ function generateAlea () : string { // cette fonction créé l'alphabet,
     $alphabet = "abcdefghijklmnopqrstuvwxyz";
     return $alphabet[rand(0,25)];
 }
+

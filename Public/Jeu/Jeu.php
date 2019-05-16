@@ -19,8 +19,8 @@ require ("traitment.php");
         <form action="" method="post" class="was-validated" style="width: 300px; background: darkgray;">
 
             <label for="lettre"></label>
-            <input type="text" id="lettre" name="lettre" class="form-control" min="1" max="1" required style="width: 50%; margin: auto" autofocus>
-            <input type="submit" class="form-control" placeholder="Valider">
+            <input type="text" id="lettre" name="lettre" class="form-control" min="1" maxlength="1" required style="width: 50%; margin: auto" autofocus>
+            <input type="submit" class="form-control" placeholder="Valider" id="bouton" name="bouton">
 
         </form>
     </section>
@@ -28,7 +28,6 @@ require ("traitment.php");
 
 </body>
 </html>
-
 
 
 
