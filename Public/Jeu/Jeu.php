@@ -1,7 +1,6 @@
 <?php
 require ("../inc/header.php");
 require ("traitment.php");
-require ("functionJeu.php");
 ?>
 
 <!doctype html>
@@ -16,7 +15,7 @@ require ("functionJeu.php");
 <body>
 
 <main class="container">
-    <section class="row">
+    <section class="form-group">
         <form action="" method="post" class="was-validated" style="width: 300px; background: darkgray;">
 
             <label for="lettre"></label>
