@@ -1,6 +1,6 @@
 <?php
-require ("../inc/header.php");
-require ("traitment.php");
+require("../inc/header.php");
+require("traitment.php");
 ?>
 
 <!doctype html>
@@ -15,11 +15,24 @@ require ("traitment.php");
 <body>
 
 <main class="container">
+    <h1>Jeu des lettres aléatoire</h1>
+    <?php if (!empty($resultMsg)) : ?>
+        <h2>Résultat :</h2>
+        <p> <?= $resultMsg; ?> </p>
+    <?php endif; ?>
+
     <section class="form-group">
+
         <form action="" method="post" class="was-validated" style="width: 300px; background: darkgray;">
 
-            <label for="lettre"></label>
-            <input type="text" id="lettre" name="lettre" class="form-control" min="1" maxlength="1" required style="width: 50%; margin: auto" autofocus>
+            <div class="row">
+
+                <label for="lettre"></label>
+                <input type="text" id="lettre" name="lettre" class="form-control" min="1" maxlength="1" required
+                       style="width: 50%;" autofocus>
+                <p style="width: 40%; height: 50px; line-height: 50px; text-align: center; background: aqua; color: #000;"> <?= $resultCpt ?></p>
+            </div>
+
             <input type="submit" class="form-control" placeholder="Valider" id="bouton" name="bouton">
 
         </form>
@@ -29,8 +42,6 @@ require ("traitment.php");
 </body>
 </html>
 
-
-
 <?php
-require ("../inc/footer.php");
+require("../inc/footer.php");
 ?>
