@@ -6,7 +6,8 @@
 // $_POST : les variables du formulaires (attribut HTML name)
 // empty() : permet de tester "est-ce que c'est vide ?"
 // empty($_POST) : si $_POST est vide
-//
+require 'form-function.php';
+
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
 //// Test du nom,

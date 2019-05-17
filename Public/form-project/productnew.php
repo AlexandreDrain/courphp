@@ -1,6 +1,6 @@
 <?php
     // inclusion des fichiers PHP
-    require "inc/header.php";
+    require "../inc/header.php";
     require "handle-product-new.php";
 ?>
 
@@ -34,5 +34,5 @@
 </main>
 
 <?php
-    require ("inc/footer.php");
+    require("../inc/footer.php");
 ?>
