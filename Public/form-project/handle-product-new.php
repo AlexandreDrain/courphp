@@ -8,112 +8,36 @@
 // empty($_POST) : si $_POST est vide
 require 'form-function.php';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST"){
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-//// Test du nom,
-//// L'existence
-if (!array_key_exists('name', $_POST)) {
-    var_dump("Le nom n'existe pas!");
-} elseif ($_POST['name'] === '') { //// La non-nullité
-        var_dump("Il faut saisir un nom");
-    }elseif (strlen($_POST['name']) > 255) { //// Valeur maxi (255)
-            var_dump("Le nom est trop long (max 255 caractères)");
-}
+    //// Test du nom
+    $errorMessageName = checkPostText('name', 255);
+    var_dump("$errorMessageName");
+    //// Test du Firstnom
+    $errorMessageFirstName = checkPostText('firstname', 255);
+    var_dump("$errorMessageFirstName");
+    //// Test de la descritpion
+    $errorMessageDsc = checkPostText('description', 65535);
+    var_dump("$errorMessageDsc");
 
-if (!array_key_exists('description', $_POST)) {
-    var_dump("La description n'existe pas!");
-} elseif ($_POST['description'] === '') { //// La non-nullité
-        var_dump("Il faut saisir un texte");
-    }elseif (strlen($_POST['description']) > 65535) { //// Valeur maxi (65535)
-            var_dump("Le texte est trop long (max 65535 caractères)");
-}
-//// Le type
-// Pas de vérifications pour les chaînes de caractères
+    //// Test du prix
+    //// Existence
+    $errorMessagePrice = checkPostNbr("prix", 0.1, 9999999.99, true);
+    var_dump("$errorMessagePrice");
 
+    checkPostradio("publie");
 
-/* Test du prix */
-//// Existence
-if (!array_key_exists('prix', $_POST)) {
-    var_dump("Le price n'existe pas !");
-} else {
-    //// La non-nullité
-    if ($_POST['prix'] === '') {
-        var_dump("Il faut saisir un prix !");
-    } else {
-        //// Le type
-        if (!is_numeric($_POST['prix'])) {
-            var_dump("Veuillez saisir un prix correct !");
-        }
-        $_POST['prix'] = floatval($_POST['prix']);
-        //// Valeur mini (0)
-        if ($_POST['prix'] < 0) {
-            var_dump("Le prix doit être positif !");
-        }
-        //// Valeur maxi
-        if($_POST['prix'] > 9999999.99) {
-            var_dump("Le prix doit être inférieur à 10 millions !");
-        }
-    }
-}
+    // Date :
+    $errorMessageDate = checkPostDate("date");
+    var_dump("$errorMessageDate");
 
-if (!array_key_exists("publie", $_POST)) {
-    $_POST["publie"] = false;
-}else {
-    $_POST["publie"] = true;
-    }
-
-    // syntaxe alternative
-    // $_POST["publie"] = (array_key_exists("publie"), $_POST);
-
- // var_dump($_POST);
-
-if (!array_key_exists('date', $_POST)) {
-    var_dump("La date de création de la date n'existe pas!");
-} elseif ($_POST['date'] === '') { //// La non-nullité
-    var_dump("Il faut saisir une date de création");
-}else {
-    //On décompose la date de création en trois parties
-    $tabdate = explode("-", $_POST["date"]);
-    // On vérifie qu'on est bien les 3 composantes de la date
-    if (sizeof($tabdate) === 3){
-
-        //On check si la date est correcte
-    if (!checkdate($tabdate[1], $tabdate[2], $tabdate[0])) {
-            var_dump("Il faut saisir une date valide");
-    }
-    } else {
-            var_dump("Il faut saisir une date valide");
-        }
-
-}
-
-if (!array_key_exists('view', $_POST)) {
-    var_dump("Le nombre de vue n'existe pas !");
-} else {
-    //// La non-nullité
-    if ($_POST['view'] === '') {
-        var_dump("Il faut saisir un nombre de vue !");
-    } else {
-        //// Le type
-        if (!is_numeric($_POST['view'])) {
-            var_dump("Veuillez saisir un nombre de vue correct !");
-        }
-        $_POST['view'] = intval($_POST['view']);
-        //// Valeur mini (0)
-        if ($_POST['view'] < 0) {
-            var_dump("Le nombre de vue doit être positif !");
-        }
-        //// Valeur maxi
-        if($_POST['view'] > 19E19) {
-            var_dump("Le nombre de vue doit être inférieur a 19e19 vues !");
-        }
-    }
-}
+    $errorMessagePrice = checkPostNbr("view", 0, 19E19, false);
+    var_dump("$errorMessagePrice");
 
 
-/*$tab = ["banane", "pamplemousse", "kiwi"];
-$str = implode(", ", $tab); // banane, pamplemousse, kiwi.
-$tab = explode(", ", $str);
- exemple */
+    /*$tab = ["banane", "pamplemousse", "kiwi"];
+    $str = implode(", ", $tab); // banane, pamplemousse, kiwi.
+    $tab = explode(", ", $str);
+     exemple */
 
 }
